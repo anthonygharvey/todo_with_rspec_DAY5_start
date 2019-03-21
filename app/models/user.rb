@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 	validates :firstname, :lastname, :email, presence: true
 	has_many :tasks
+	validates_uniqueness_of :email
 
 	def due_today
 		self.tasks.select do |t|
